@@ -1,5 +1,5 @@
 from Personaje import *
-#Solicitamos
+#Solicitamos datos para el objeto
 print("")
 print("### Solicitud datos heroe ###")
 especieH=input("Escribe la especie del heroe:")
@@ -12,6 +12,10 @@ especieV=input("Escribe la especie del villano:")
 nombreV=input("Escribe el nombre del villano:")
 alturaV=float(input("Escribe la altura del villano:"))
 recargaV=int(input("Ingresa las balas para el villano"))
+
+#Creamos los objetos
+Heroe=Personaje(especieH,nombreH,alturaH)
+Villano=Personaje(especieV,nombreV,alturaV)
 
 #Creamos una instancia de la clase personaje, en este caso la instancia se llama heroe.
 Heroe=Personaje()
