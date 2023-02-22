@@ -17,15 +17,21 @@ recargaV=int(input("Ingresa las balas para el villano"))
 Heroe=Personaje(especieH,nombreH,alturaH)
 Villano=Personaje(especieV,nombreV,alturaV)
 
+
 #Creamos una instancia de la clase personaje, en este caso la instancia se llama heroe.
-Heroe=Personaje()
+#Heroe=Personaje()
 
 #Usamos los atributos
+#parctica 10: usamos los atributos Heroe y Villano
 print("El personaje se llama"+ Heroe.nombre)
 print("Pertenece a la especie"+ Heroe.especie)
 print("Y una altura de:"+str(Heroe.altura))
 
+print("El personaje se llama"+ Villano.nombre)
+print("Pertenece a la especie"+ Villano.especie)
+print("Y una altura de:"+str(Villano.altura))
+
 #Usar los metodos
-Heroe.correr(True)
-Heroe.lanzarGranadas()
-Heroe.recargarArma(37)
+#Heroe.correr(True)
+#Heroe.lanzarGranadas()
+#Heroe.recargarArma(37)
