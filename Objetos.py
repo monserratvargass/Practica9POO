@@ -23,15 +23,22 @@ Villano=Personaje(especieV,nombreV,alturaV)
 
 #Usamos los atributos
 #parctica 10: usamos los atributos Heroe y Villano
+print("")
 print("El personaje se llama"+ Heroe.nombre)
 print("Pertenece a la especie"+ Heroe.especie)
 print("Y una altura de:"+str(Heroe.altura))
+#5.
+Heroe.correr(True)
+Heroe.lanzarGranadas()
+Heroe.recargarArma(recargaH)
 
+print("")
 print("El personaje se llama"+ Villano.nombre)
 print("Pertenece a la especie"+ Villano.especie)
 print("Y una altura de:"+str(Villano.altura))
+#5
+Villano.correr(True)
+Villano.lanzarGranadas()
+Villano.recargarArma(recargaV)
 
-#Usar los metodos
-#Heroe.correr(True)
-#Heroe.lanzarGranadas()
-#Heroe.recargarArma(37)
+#5.Usar los metodos y agregar metodos para el villano
