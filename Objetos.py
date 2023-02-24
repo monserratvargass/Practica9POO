@@ -17,28 +17,33 @@ recargaV=int(input("Ingresa las balas para el villano"))
 Heroe=Personaje(especieH,nombreH,alturaH)
 Villano=Personaje(especieV,nombreV,alturaV)
 
+Heroe.setNombre("Pepe Pecas")
+
 
 #Creamos una instancia de la clase personaje, en este caso la instancia se llama heroe.
 #Heroe=Personaje()
 
 #Usamos los atributos
 #parctica 10: usamos los atributos Heroe y Villano
+#complemento, hacemos uso del get
 print("")
-print("El personaje se llama"+ Heroe.nombre)
-print("Pertenece a la especie"+ Heroe.especie)
-print("Y una altura de:"+str(Heroe.altura))
+print("El personaje se llama"+ Heroe.getNombre())
+print("Pertenece a la especie"+ Heroe.getEspecie())
+print("Y una altura de:"+str(Heroe.getAltura()))
 #5.
 Heroe.correr(True)
 Heroe.lanzarGranadas()
 Heroe.recargarArma(recargaH)
 
 print("")
-print("El personaje se llama"+ Villano.nombre)
-print("Pertenece a la especie"+ Villano.especie)
-print("Y una altura de:"+str(Villano.altura))
+print("El personaje se llama"+ Villano.getNombre())
+print("Pertenece a la especie"+ Villano.getEspecie())
+print("Y una altura de:"+str(Villano.getAltura()))
 #5
 Villano.correr(True)
 Villano.lanzarGranadas()
 Villano.recargarArma(recargaV)
+#Villano.__pensar() #no encuentra, pq es atributo privado
 
 #5.Usar los metodos y agregar metodos para el villano
+
