@@ -1,4 +1,5 @@
-from tkinter import Tk,Label,Entry
+from tkinter import Tk,Label,Entry,Button
+from Clase import *
 
 ventana=Tk()
 ventana.title("Examen, solicitud de datos")
@@ -28,5 +29,13 @@ carrera=Label(ventana,text="Ingrese carrera a la que pertenece")
 carrera.pack()
 carr=Entry(ventana, width=40, textvariable=carrera)
 carr.pack()
+
+datos=clase(nom,apP,apM,nac,carr)
+
+def GenerarM():
+    datos.generar(nom.get(),apP.get(),apM.get(),nac.get(),carr.get())
+
+botonGenerarMatricula=Button(ventana,text="Generar matricula",command=datos.generar())
+botonGenerarMatricula.pack()
 
 ventana.mainloop()

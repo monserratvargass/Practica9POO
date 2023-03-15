@@ -1,6 +1,6 @@
 from tkinter import messagebox
 
-class examen:
+class clase:
 
     def __init__(self,nom,apP,apM,nac,carr):
         self.__nombre= nom
@@ -10,8 +10,8 @@ class examen:
         self.__carrera= carr
 
     def generar(self):
-            messagebox.showinfo("23"+self.getNacimiento[:2]+self.getNombre[:1]+self.getApellidoP[:1]+
-                                self.getApellidoM[:1]+"895"+self.getCarrera[:3])
+            messagebox.showinfo("23"+self.__nacimiento[:2]+self.__nombre[:1]+self.__apellidoP[:1]+
+                                self.__apellidoM[:1]+"895"+self.__carrera[:3])
    
     def getNombre(self):
         return self.__nombre
