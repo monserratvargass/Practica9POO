@@ -1,6 +1,15 @@
 from tkinter import *
 from tkinter import ttk
 import tkinter as tk
+#*Importar
+from ControladorBD import *
+
+#*Crear instancia: puente entre los dos archivos
+controlador= controladorBD()
+
+#*Metodo que usa mi objeto controlador para insertar
+def ejecutaInsert():
+    controlador.guardarUsuario(varNom.get(),varCo.get(),varPass.get())
 
 ventana=Tk()
 ventana.title("CRUD de usuarios")
@@ -30,7 +39,8 @@ varPass=tk.StringVar()
 lblPass=Label(pestana1,text="Contraseña: ").pack()
 txtPass=Entry(pestana1,textvariable=varPass).pack()
 
-btnGuardar=Button(pestana1,text='Guardar usuario').pack()
+#*Command
+btnGuardar=Button(pestana1,text='Guardar usuario',command=ejecutaInsert).pack()
 
 panel.add(pestana1, text="Formulario de usuarios")
 panel.add(pestana2, text="Buscar usuarios")
