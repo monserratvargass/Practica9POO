@@ -5,9 +5,6 @@ class Pass1:
         self.__contraseña=contra
 
     def validarcontraseña(contra):
-        if not 8 >= len(contra):
-            return False
-        
         numeros=0
         mayusculas=0
         minusculas=0

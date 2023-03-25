@@ -6,7 +6,7 @@ class Personaje:
         self.__nombre=nom
         self.__altura=alt
 
-    #metodos
+    #metodos publicos
     def correr(self, status):
         if(status):
             print("El personaje"+self.__nombre+"esta corriendo")
@@ -20,6 +20,11 @@ class Personaje:
         cargador=10
         cargador=cargador+municiones
         print("El arma recargada tiene"+str(cargador)+"balas")
+    #metodo privado
+    def __pensar(self):
+        print("estoy pensando...")
+
+    #GETS Y SETS para un correcto encapsulamienoto
 
     def getEspecie(self):
         return self.__especie
