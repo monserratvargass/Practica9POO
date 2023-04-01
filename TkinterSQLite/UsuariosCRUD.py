@@ -24,8 +24,18 @@ def ejecutaSelectU():
         print(cadena)
     else:
         messagebox.showinfo('No encontrado','El usuario no exite en base de datos')
-        
 
+#Metodo que usa mi objeto contrlador para consultar usuarios
+def ejecutaConsultarU():
+      RSUSU=controlador.importarUsuario()
+
+      for USU in RSUSU:
+          cadena=str(USU[0])+" "+USU[1]+" "+USU[2]+" "+str(USU[3])
+
+          #textCon.config(state='normal')
+          textCon.delete(2.0,'end')
+          textCon.insert('end',cadena+'\n')
+          #textCon.config(state='disabled')
 
 ventana=Tk()
 ventana.title("CRUD de usuarios")
@@ -69,6 +79,16 @@ btnBusqueda=Button(pestana2,text="Buscar",command=ejecutaSelectU).pack()
 
 subBus=Label(pestana2,text="Registrado:",fg="blue",font=("Modern",15)).pack()
 textBus=tk.Text(pestana2,height=5,width=52).pack()
+
+#Pestaña 3: Consultar todos los usuarios
+
+titulo3=Label(pestana3,text="Consulta de usuario:",fg="pink",font=("Modern",18)).pack()
+
+btnConsulta=Button(pestana3,text="Buscar",command=ejecutaConsultarU).pack()
+
+subCon=Label(pestana3,text="Todos los registrados",fg="blue",font=("Modern",15)).pack()
+textCon=tk.Text(pestana3,height=10,width=104)
+textCon.pack()
 
 panel.add(pestana1, text="Formulario de usuarios")
 panel.add(pestana2, text="Buscar usuarios")

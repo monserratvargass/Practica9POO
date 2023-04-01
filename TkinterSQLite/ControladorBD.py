@@ -69,3 +69,21 @@ class controladorBD:
                 return RSusuario
             except sqlite3.OperationalError:
                 print("Error de consulta")
+        
+    def importarUsuario(self):
+        #Conexion a la BD
+        conx=self.conexionBD()
+        try:
+            cursor=conx.cursor()
+            sqlConsulta="select * from TbRegistrados"
+
+            cursor.execute(sqlConsulta)
+            rsusuario=cursor.fetchall()
+            conx.close()
+
+            return rsusuario
+        except sqlite3.OperationalError:
+            print("Error de consulta")
+            
+
+
