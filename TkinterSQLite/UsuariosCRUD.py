@@ -4,6 +4,8 @@ import tkinter as tk
 from tkinter import messagebox
 #*Importar
 from ControladorBD import *
+#1-Import tkinter module, ttk submodule and the showinfo from tkinter.messagebox
+from tkinter.messagebox import showinfo
 
 #*Crear instancia: puente entre los dos archivos
 controlador= controladorBD()
@@ -32,10 +34,14 @@ def ejecutaConsultarU():
       for USU in RSUSU:
           cadena=str(USU[0])+" "+USU[1]+" "+USU[2]+" "+str(USU[3])
 
+          tabla.insert('',tk.END, values=cadena)
+
           #textCon.config(state='normal')
-          textCon.delete(2.0,'end')
-          textCon.insert('end',cadena+'\n')
+          #textCon.delete(2.0,'end')
+          #textCon.insert('end',cadena+'\n')
           #textCon.config(state='disabled')
+
+          tabla.bind('<<TreeviewSelect>>', ejecutaConsultarU)
 
 ventana=Tk()
 ventana.title("CRUD de usuarios")
@@ -89,6 +95,19 @@ btnConsulta=Button(pestana3,text="Buscar",command=ejecutaConsultarU).pack()
 subCon=Label(pestana3,text="Todos los registrados",fg="blue",font=("Modern",15)).pack()
 textCon=tk.Text(pestana3,height=10,width=104)
 textCon.pack()
+
+#2-Define identifiers for columns
+columnas=('ID','nombre','correo','contra')
+#3-Create a Tkinter´s Treeview widget
+tabla=ttk.Treeview(textCon,columns=columnas,show='headings')
+#5-Specify the headings for the columns
+tabla.heading('ID',text='ID')
+tabla.heading('nombre',text='NOMBRE')
+tabla.heading('correo',text='CORREO')
+tabla.heading('contra',text='CONTRASEÑA')
+
+tabla.pack()
+
 
 panel.add(pestana1, text="Formulario de usuarios")
 panel.add(pestana2, text="Buscar usuarios")

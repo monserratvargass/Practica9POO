@@ -84,6 +84,3 @@ class controladorBD:
             return rsusuario
         except sqlite3.OperationalError:
             print("Error de consulta")
-            
-
-
