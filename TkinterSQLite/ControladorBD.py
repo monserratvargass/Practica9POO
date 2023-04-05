@@ -28,7 +28,7 @@ class controladorBD:
             #4. Preparamos las variables necesarias
             cursor=conex.cursor()
             conH=self.encriptarContra(con)
-            datos=(nom,cor,con)
+            datos=(nom,cor,conH)
             sqlInsert="insert into TbRegistrados(nombre,correo,contra) values(?,?,?)"
 
             #5.Ejecutamos el Insert
@@ -83,4 +83,49 @@ class controladorBD:
 
             return rsusuario
         except sqlite3.OperationalError:
-            print("Error de consulta")
+            print("Error de importar usuarios")
+    
+    def actualizarUsuario(self,id,nombre,correo,contra):
+         #1.Realizar conexion BD
+        conx=self.conexionBD()
+        #2.Verificar que el id vacio
+        if(id==""):
+            messagebox.showwarning("Cuidado","Escribe un identificador")
+            conx.close()
+        else:
+            #3.Ejecutar la consulta
+            try:
+                cursor=conx.cursor()
+                sqlUpdate="update TbRegistrados set nombre=?, correo=? ,contra=? where id="+id #Se actualizaran los registros a partir del id seleccionado
+                #Ejecutamos y cerramos conexion
+                datos1=(nombre,correo,contra)
+                cursor.execute(sqlUpdate,datos1)
+                UPusuario=cursor.fetchall() #Toma lo que esta en el cursor, mueve hacia la vista
+                conx.commit()
+                conx.close()
+
+                return UPusuario
+            except sqlite3.OperationalError:
+                print("Error de actualizacion")
+    
+    def eliminarUsuario(self,id):
+         #1.Realizar conexion BD
+        conx=self.conexionBD()
+        #2.Verificar que el id vacio
+        if(id==""):
+            messagebox.showwarning("Cuidado","Escribe un identificador")
+            conx.close()
+        else:
+            #3.Ejecutar lo de eliminar
+            try:
+                cursor=conx.cursor()
+                sqlEliminar="delete from TbRegistrados where id="+id #Se eliminaran los registros a partir del id seleccionado
+                #Ejecutamos y cerramos conexion
+                cursor.execute(sqlEliminar)
+                Elmusuario=cursor.fetchall() #Toma lo que esta en el cursor, mueve hacia la vista
+                conx.commit()
+                conx.close()
+
+                return Elmusuario
+            except sqlite3.OperationalError:
+                print("No se puede ejecutar la funcion eliminar")
