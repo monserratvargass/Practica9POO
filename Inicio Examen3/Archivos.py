@@ -18,7 +18,7 @@ def ejecutaSelectP():
     #Todo se guarda como una cadena, viendo posiciones de cada elemento
     #Iteramos el contenido de la consulta y lo guardamos en CADENA
     for usu in rsUsu:
-        cadena= str(usu[0])+" "+usu[1]+" "+usu[2]+" "+str(usu[3])
+        cadena= str(usu[0])+" "+usu[1]+" "+usu[2]+" "
 
         textPED.config(state='normal')
         textPED.delete(2.0,'end')
@@ -41,10 +41,10 @@ def ejecutaEliminarP():
         #for delete in DELUSU:
             #deletecadena=str(delete[0])+" "+delete[1]+" "+delete[2]+" "+str(delete[3])
     #pregunta
-    ask=messagebox.askyesno('Pregunta','¿Estas seguro de eliminar el usuario?')
+    ask=messagebox.askyesno('Pregunta','¿Estas seguro de eliminar el pedimento?')
     #Condiciones para verdadero el registro es eliminado de lo contrario no se elimina
     if ask==True:
-        DELUSU=controlador.eliminarUsuario(varElim.get())
+        DELUSU=controlador.eliminarPedimento(varElim.get())
         for delete in DELUSU:
             deletecadena=str(delete[0])+" "+delete[1]+" "+delete[2]+" "+str(delete[3])
 

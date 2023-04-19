@@ -25,32 +25,32 @@ class BDcontrolador:
         else:
             #3.Realizar insert a BD
             #4. Preparamos las variables necesarias
-            cursor=conex.cursor()
+            cursor1=conex.cursor()
             #conH=self.encriptarContra(con)
-            #datos=(nom,cor,conH)
+            datos=(trans,adu)
             sqlInsert="insert into TBPedimentos(Transporte,Aduana) values(?,?)"
 
             #5.Ejecutamos el Insert
-            cursor.execute(sqlInsert)
+            cursor1.execute(sqlInsert,datos)
             conex.commit()
             conex.close()
-            messagebox.showinfo("Exito","Usuario guardado")
+            messagebox.showinfo("Exito","Pedimento guardado")
 
     def consultarPedimento(self,aduana):
         #1.Realizar conexion BD
         conx=self.conexionBD()
         #2.Verificar que el id vacio
-        if(id==""):
+        if(aduana==""):
             messagebox.showwarning("Cuidado","Escribe aduana")
             conx.close()
         else:
             #3.Ejecutar la consulta
             try:
-                cursor=conx.cursor()
+                cursor2=conx.cursor()
                 sqlSelect="select * from TBPedimentos where Aduana="+aduana
                 #Ejecutamos y cerramos conexion
-                cursor.execute(sqlSelect)
-                RSusuario=cursor.fetchall() #Toma lo que esta en el cursor, mueve hacia la vista
+                cursor2.execute(sqlSelect)
+                RSusuario=cursor2.fetchall() #Toma lo que esta en el cursor, mueve hacia la vista
                 conx.close()
 
                 return RSusuario
@@ -67,11 +67,11 @@ class BDcontrolador:
         else:
             #3.Ejecutar lo de eliminar
             try:
-                cursor=conx.cursor()
+                cursor3=conx.cursor()
                 sqlEliminar="delete from TBPedimentos where IDExpo="+id #Se eliminaran los registros a partir del id seleccionado
                 #Ejecutamos y cerramos conexion
-                cursor.execute(sqlEliminar)
-                Elmusuario=cursor.fetchall() #Toma lo que esta en el cursor, mueve hacia la vista
+                cursor3.execute(sqlEliminar)
+                Elmusuario=cursor3.fetchall() #Toma lo que esta en el cursor, mueve hacia la vista
                 conx.commit()
                 conx.close()
 
