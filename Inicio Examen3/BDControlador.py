@@ -28,7 +28,7 @@ class BDcontrolador:
             cursor=conex.cursor()
             #conH=self.encriptarContra(con)
             #datos=(nom,cor,conH)
-            sqlInsert="insert into TbRegistrados(Transporte,Aduana) values(?,?)"
+            sqlInsert="insert into TBPedimentos(Transporte,Aduana) values(?,?)"
 
             #5.Ejecutamos el Insert
             cursor.execute(sqlInsert)
@@ -68,7 +68,7 @@ class BDcontrolador:
             #3.Ejecutar lo de eliminar
             try:
                 cursor=conx.cursor()
-                sqlEliminar="delete from TbRegistrados where IDExpo="+id #Se eliminaran los registros a partir del id seleccionado
+                sqlEliminar="delete from TBPedimentos where IDExpo="+id #Se eliminaran los registros a partir del id seleccionado
                 #Ejecutamos y cerramos conexion
                 cursor.execute(sqlEliminar)
                 Elmusuario=cursor.fetchall() #Toma lo que esta en el cursor, mueve hacia la vista
