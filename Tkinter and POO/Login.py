@@ -1,13 +1,17 @@
-from tkinter import Tk,Button,Frame,messagebox,Label,ttk, StringVar,Entry
+from tkinter import messagebox
+
 class Login:
 
-    def __init__(self,correousuario ,contraseña):
+    def __init__(self):
         self.__correoE= "panconleche"
         self.__contraE= "monse1601"
 
 
     def validar(self,correousuario,contra):
-        if (contra ==self.__contraE  and correousuario==self.__correoE):
-            messagebox.showinfo("Informacion","Bienvenido")
+        if (contra ==""  and correousuario==""):
+            messagebox.showwarning("Alerta","Los campos deben ser llenados")
         else:
-            messagebox.showerror("Error","Revisa tus datos")
+            if(self.__correoE==correousuario and self.__contraE==contra):
+                messagebox.showinfo("Exito","Bienvenido(a)")
+            else:
+                messagebox.showerror("Error","Los datos son incorrectos")

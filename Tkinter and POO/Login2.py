@@ -1,30 +1,33 @@
+from tkinter import *
 from Login import *
+import tkinter as tk
+
+login1=Login()
+
+def ejecutaVal():
+    login1.validar(CorreoUsuario.get(),contraseña1.get())
 
 ventana=Tk()
 ventana.title("LOGIN")
 ventana.geometry("600x400")
 
-correousuario=Label(ventana, text="Ingrese su correo del usuario:")
-correousuario.pack()
+seccion1=Frame(ventana)
+seccion1.pack(expand=True,fill='both')
 
-CorreoUsuario=StringVar()
-cu=Entry(ventana, width=40, textvariable=CorreoUsuario)
-cu.pack()
-correoEntry= cu.get()
+titulo=Label(seccion1,text="Login",bg="black",fg="white",font=("Helvetica",18))
+titulo.pack()
 
-contraseña=Label(ventana, text="Ingrese contraseña:") 
-contraseña.pack()
+CorreoUsuario=tk.StringVar()
+lblcu=Label(seccion1,text="Ingrese correo: ")
+lblcu.pack()
+txtcu=Entry(seccion1, textvariable=CorreoUsuario,takefocus=True)
+txtcu.pack()
 
-contraseña1=StringVar()
-co=Entry(ventana,textvariable=contraseña1,show="*")
-co.pack()
-contraEntry= co.get()
-
-
-login1=Login(correoEntry,contraEntry)
-
-def ejecutaVal():
-    login1.validar(contraseña1.get(),CorreoUsuario.get())
+contraseña1=tk.StringVar()
+lblco=Label(seccion1,text="Ingrese contraseña: ")
+lblco.pack()
+txtco=Entry(seccion1,show="*",textvariable=contraseña1)
+txtco.pack()
 
 botonValidar=Button(ventana,text="Validar",command=login1.validar)
 botonValidar.pack()
