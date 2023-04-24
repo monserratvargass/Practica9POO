@@ -2,7 +2,7 @@ from tkinter import *
 from Login import *
 import tkinter as tk
 
-login1=Login()
+login1=Login(correousuario='panconleche',contraseña='Monse1601')
 
 def ejecutaVal():
     login1.validar(CorreoUsuario.get(),contraseña1.get())
@@ -29,7 +29,7 @@ lblco.pack()
 txtco=Entry(seccion1,show="*",textvariable=contraseña1)
 txtco.pack()
 
-botonValidar=Button(ventana,text="Validar",command=login1.validar)
+botonValidar=Button(ventana,text="Validar",command=ejecutaVal)
 botonValidar.pack()
 
 ventana.mainloop()
