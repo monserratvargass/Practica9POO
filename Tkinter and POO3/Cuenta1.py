@@ -2,12 +2,6 @@ from tkinter import Tk,Label,Entry,Button
 import tkinter as tk
 from Cuenta2 import *
 
-intcajero=cajero()
-
-ventana=Tk()
-ventana.title("Cajero automatico")
-ventana.geometry("600x400")
-
 '''def consultar():
     intcajero.consultarsaldo()
 
@@ -20,26 +14,30 @@ def retirar():
 def depositar():
     intcajero.depositaracuenta()'''
 
-def menu():
-    while(True):
+'''def menu():
+    #while(True):
         #txtop=float(input('Ingresa la opcion a ejecutar:'))
 
-        if(txtop==1):
-            intcajero.consultarsaldo()
-        elif(txtop==2):
-            intcajero.ingresarefectivo()
-        elif(txtop==3):
-            intcajero.retirarefectivo()
-        elif(txtop==4):
-            intcajero.depositaracuenta()
+    if(txtop==1):
+        intcajero.consultarsaldo()
+    elif(txtop==2):
+        intcajero.ingresarefectivo()
+    elif(txtop==3):
+        intcajero.retirarefectivo()
+    elif(txtop==4):
+        intcajero.depositaracuenta()
 
 opcion=tk.StringVar()
 lblop=Label(ventana,text="Ingresa el numero de eleccion:")
 lblop.pack()
 txtop=Entry(ventana, textvariable=opcion)
-txtop.pack()
+txtop.pack()'''
 
-'''con_saldo=tk.StringVar()
+ventana=Tk()
+ventana.title("Cajero automatico")
+ventana.geometry("600x400")
+
+con_saldo=tk.StringVar()
 lblcon_saldo=Label(ventana,text="Cuenta de la que desea consultar saldo:")
 lblcon_saldo.pack()
 txtcon_saldo=Entry(ventana, textvariable=con_saldo)
@@ -61,21 +59,27 @@ deposito_cuenta=tk.StringVar()
 lbldeposito_cuenta=Label(ventana,text="Cuenta a depositar:")
 lbldeposito_cuenta.pack()
 txtdeposito_cuenta=Entry(ventana, textvariable=deposito_cuenta)
-txtdeposito_cuenta.pack()'''
+txtdeposito_cuenta.pack()
 
-botonMenu=Button(ventana,text="Ejecutar",command=menu)
-botonMenu.pack()
+'''botonMenu=Button(ventana,text="Ejecutar",command=menu)
+botonMenu.pack()'''
 
-'''botonConsultar=Button(ventana,text="Consultar saldo")
+saldo=0
+
+intcajero=cajero(no_cuenta='121040294',edad="21",saldo=0,titular='Monserrat')
+
+botonConsultar=Button(ventana,text="Consultar saldo",command=intcajero.consultarsaldo)
 botonConsultar.pack()
 
-botonIngresar=Button(ventana,text="Ingresar efectivo")
+botonIngresar=Button(ventana,text="Ingresar efectivo",command=intcajero.ingresarefectivo)
 botonIngresar.pack()
 
-botonRetirar=Button(ventana,text="Retirar efectivo")
+botonRetirar=Button(ventana,text="Retirar efectivo",command=intcajero.retirarefectivo)
 botonRetirar.pack()
 
-botonDepositarCuenta=Button(ventana,text="Depositar a cuenta")
-botonDepositarCuenta.pack()'''
+intcajero=cajero(no_cuenta='121070497',edad="21",saldo=0,titular='Itzel')
+
+botonDepositarCuenta=Button(ventana,text="Depositar a cuenta",command=intcajero.depositaracuenta)
+botonDepositarCuenta.pack()
 
 ventana.mainloop()
