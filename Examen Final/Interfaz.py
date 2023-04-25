@@ -3,14 +3,21 @@ from Logica import *
 from tkinter import ttk
 import tkinter as tk
 
-romanos=['I','II','III']
-arabigos=['1,2,3']
+ventana=Tk()
+ventana.title("LOGIN")
+ventana.geometry("600x400")
 
-conversor=Logica(romanos,arabigos)
+'''romanos=['I','II','III']
+arabigos=['1,2,3']'''
+
+romanos= StringVar()
+arabigo= StringVar()
+
+conversor=Logica(romanos,arabigo)
 
 #conversor=Logica()
 
-def ra():
+'''def ra():
     arabigos={'1,2,3'}
     #romanos={'I':1,'II':2,'III':3}
     if(romanos==txtromanos.get()):
@@ -24,12 +31,15 @@ def ar():
     if(arabigos==txtarabigo.get()):
         conversor.convertir_arabigos_romanos(arabigos)
     else:
-        messagebox.showinfo('Convertidor',romanos)
+        messagebox.showinfo('Convertidor',romanos)'''
 
-
-ventana=Tk()
-ventana.title("LOGIN")
-ventana.geometry("600x400")
+def ra():
+    rom=conversor.convertir_romanos_arabigos()
+    messagebox.showinfo("Convertidor",f"Tu numero arabigo es: {rom}")
+ 
+def ar():
+    ara=conversor.convertir_arabigos_romanos()
+    messagebox.showinfo("Conversor",f"Tu numero romano es: {ara}")
 
 panel=ttk.Notebook(ventana)
 panel.pack(fill='both',expand='yes')
