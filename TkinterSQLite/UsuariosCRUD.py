@@ -212,7 +212,5 @@ panel.add(pestana1, text="Formulario de usuarios")
 panel.add(pestana2, text="Buscar usuarios")
 panel.add(pestana3, text="Consultar usuarios")
 panel.add(pestana4, text="Actualizar usuarios")
-#Nueva pestaña para eliminar usuarios
-panel.add(pestana5, text="Eliminar usuarios")
 
 ventana.mainloop()
